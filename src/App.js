@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Directory from './components/DirectoryComponent';
+import Navigation from './components/NavbarComponent';
 import { MENUITEMS } from './shared/menuitem';
 import './App.css';
 
@@ -14,11 +14,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Navbar dark color="primary">
-                <div className="container">
-                    <NavbarBrand href="/">McGhee's Eatery</NavbarBrand>
-                </div>
-                </Navbar>
+                <Navigation/>
                 <Directory menuitems={this.state.menuitems} />
             </div>
         );
