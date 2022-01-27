@@ -1,61 +1,47 @@
-import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import React from 'react';
+import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
+function RenderDirectoryItem({campsite}) {
+    return (
+        <Card>
+            <Link to={`/directory/${campsite.id}`}>
+                <CardImg width="100%" src={campsite.image} alt={campsite.name} />
+                <CardImgOverlay>
+                    <CardTitle>{campsite.name}</CardTitle>
+                </CardImgOverlay>
+            </Link>
+        </Card>
+    );
+}
 
-class Directory extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedMenuitem: null
-        };
-    }
+function Directory(props) {
 
-    onMenuitemSelect(menuitem) {
-        this.setState({selectedMenuitem: menuitem});
-    }
-
-    renderSelectedMenuitem(menuitem) {
-        if (menuitem) {
-            return (
-                <Card>
-                    <CardImg top src={menuitem.image} alt={menuitem.name} />
-                    <CardBody>
-                        <CardTitle>{menuitem.name}</CardTitle>
-                        <CardText>{menuitem.description}</CardText>
-                    </CardBody>
-                </Card>
-            );
-        }
-        return <div />;
-    }
-
-    render() {
-        const directory = this.props.menuitems.map(menuitem => {
-            return (
-                <div key={menuitem.id} className="col-md-5 m-1">
-                    <Card onClick={() => this.onMenuitemSelect(menuitem)}>
-                        <CardImg width="100%" src={menuitem.image} alt={menuitem.name} />
-                        <CardImgOverlay>
-                            <CardTitle>{menuitem.name}</CardTitle>
-                        </CardImgOverlay>
-                    </Card>
-                </div>
-            );
-        });
-
+    const directory = props.campsites.map(campsite => {
         return (
-            <div className="container">
-                <div className="row">
-                    {directory}
-                </div>
-                <div className="row">
-                    <div className="col-md-5 m-1">
-                        {this.renderSelectedMenuitem(this.state.selectedMenuitem)}
-                    </div>
-                </div>
+            <div key={campsite.id} className="col-md-5 m-1">
+                <RenderDirectoryItem campsite={campsite} />
             </div>
         );
-    }
+    });
+
+    return (
+        <div className="container">
+            <div className="row">
+                <div className="col">
+                    <Breadcrumb>
+                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>Directory</BreadcrumbItem>
+                    </Breadcrumb>
+                    <h2>Directory</h2>
+                    <hr />
+                </div>
+            </div>
+            <div className="row">
+                {directory}
+            </div>
+        </div>
+    );
 }
 
 export default Directory;

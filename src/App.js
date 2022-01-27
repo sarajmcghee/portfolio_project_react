@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
-import Directory from './components/DirectoryComponent';
-import Navigation from './components/NavbarComponent';
-import { MENUITEMS } from './shared/menuitem';
+import Main from './components/MainComponent';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        menuitems: MENUITEMS
-    };
-}
     render() {
         return (
-            <div className="App">
-                <Navigation/>
-                <Directory menuitems={this.state.menuitems} />
-            </div>
+            <BrowserRouter>
+                <div className="App">
+                    <Main />
+                </div>
+            </BrowserRouter>
         );
-    }
+    };
 }
 
 export default App;
