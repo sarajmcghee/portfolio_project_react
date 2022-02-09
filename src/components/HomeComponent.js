@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import { MENUITEM } from '../shared/menuitem';
 
 function RenderCard({item}) {
     return (
@@ -14,19 +15,21 @@ function RenderCard({item}) {
 }
 
 
-function Home(props) {
+function Home() {
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md m-1">
-                    <RenderCard item={props.campsite} />
+                <CardImg src="/assets/images/Main1.jpg" alt="Mainpic" />
                 </div>
                 <div className="col-md m-1">
-                    <RenderCard item={props.promotion} />
+                <CardImg src="/assets/images/Main2.jpg" alt="Mainpic" />
                 </div>
-                <div className="col-md m-1">
-                    <RenderCard item={props.partner} />
-                </div>
+            </div>
+            <div className="row">
+                <br></br>
+                <br></br>
+            <h6>Our passion is for creating special moments.  Make us your first stop of the day.</h6>
             </div>
         </div>
     );
