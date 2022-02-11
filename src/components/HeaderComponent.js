@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React, { Component } from 'react';
 import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ class Header extends Component {
 
         this.toggleNav = this.toggleNav.bind(this);
         this.state = {
-          isNavOpen: false
+            isNavOpen: false
         };
     }
 
@@ -22,7 +22,7 @@ class Header extends Component {
     render() {
         return (
             <React.Fragment>
-                                <Jumbotron fluid>
+                <Jumbotron fluid>
                     <div className="container">
                         <div className="row">
                             <div className="col">
@@ -34,7 +34,7 @@ class Header extends Component {
                 <Navbar className="navbar-custom mr-auto" sticky="top" expand="md">
                     <div className="container">
                         <NavbarBrand className="mr-auto"></NavbarBrand>
-                        <NavbarToggler onClick={this.toggleNav} className="navbar-light"/>
+                        <NavbarToggler onClick={this.toggleNav} className="navbar-light" />
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
@@ -43,21 +43,21 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/directory">
+                                    <NavLink className="nav-link" to="/order">
                                         <i className="fa fa-list fa-lg" /> Order Online
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
+                                    <NavLink className="nav-link" to="/reservations">
                                         <i className="fa fa-info fa-lg" /> Reservations
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
+                                    <NavLink className="nav-link" to="/menu">
                                         <i className="fa fa-info fa-lg" /> Menu
                                     </NavLink>
                                 </NavItem>
-                                <NavItem className="justify-content-end"> 
+                                <NavItem className="justify-content-end">
                                     <NavLink className="nav-link" to="/contactus">
                                         <i className="fa fa-address-card fa-lg" /> Contact
                                     </NavLink>

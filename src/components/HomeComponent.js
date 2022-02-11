@@ -1,21 +1,30 @@
-import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import { render } from '@testing-library/react';
+import React, { Component } from 'react';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardImgOverlay } from 'reactstrap';
 import { MENUITEM } from '../shared/menuitem';
 
-function RenderCard({item}) {
-    return (
-        <Card>
-            <CardImg src={item.image} alt={item.name} />
-            <CardBody>
-                <CardTitle>{item.name}</CardTitle>
-                <CardText>{item.description}</CardText>
-            </CardBody>
-        </Card>
-    );
-}
 
 
-function Home() {
+class Home extends Component {
+
+    
+   RenderCard(item) {
+        console.log("RenderCard");
+        console.log(item);
+        console.log(item.directory.directory);
+  
+        return (
+            <Card>
+                <CardImg src={item.directory.directory.image} alt={item.directory.directory.name} />
+                <CardBody>
+                    <CardTitle>{item.directory.directory.name}</CardTitle>
+                    <CardText>{item.directory.directory.description}</CardText>
+                </CardBody>
+            </Card>
+        );
+    }
+    
+    render(){
     return (
         <div className="container">
             <div className="row">
@@ -31,8 +40,11 @@ function Home() {
                 <br></br>
             <h6>Our passion is for creating special moments.  Make us your first stop of the day.</h6>
             </div>
+        
         </div>
+
     );
+    }
 }
 
 export default Home;   
