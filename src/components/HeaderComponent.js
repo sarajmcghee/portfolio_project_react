@@ -43,12 +43,12 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/order">
-                                        <i className="fa fa-list fa-lg" /> Order Online
+                                    <NavLink className="nav-link" to="/onlineorder">
+                                        <i className="fa fa-list fa-lg" /> Online Order
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/reservations">
+                                    <NavLink className="nav-link" to="/reservation">
                                         <i className="fa fa-info fa-lg" /> Reservations
                                     </NavLink>
                                 </NavItem>
@@ -66,9 +66,6 @@ class Header extends Component {
                         </Collapse>
                     </div>
                 </Navbar>
-
-
-
             </React.Fragment>
         );
     }

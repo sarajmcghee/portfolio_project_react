@@ -4,6 +4,9 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
+import OnlineOrder from './OnlineOrderComponent';
+import Reservation from './ReservationComponent';
+import Menu from './MenuComponent';
 import { COMMENTS } from '../shared/comments';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -19,11 +22,9 @@ class Main extends Component {
     }
 
     render() {
-console.log("MAIN");
-console.log(this.state.directory);
         const HomePage = () => {
             return (
-                <Home  directory={this.state.directory}/>
+                <Home directory={this.state.directory} />
             );
         };
 
@@ -34,7 +35,9 @@ console.log(this.state.directory);
                 <Header />
                 <Switch>
                     <Route path='/home' component={HomePage} />
-                    {/* <Route exact path='/directory' render={() => <Directory directory={DirectoryId} />} /> */}
+                    <Route exact path='/onlineorder' component={OnlineOrder} />
+                    <Route exact path='/reservation' component={Reservation} />
+                    <Route exact path='/menu' component={Menu}/>
                     <Route exact path='/contactus' component={Contact} />
                     <Redirect to='/home' />
                 </Switch>

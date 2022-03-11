@@ -2,16 +2,16 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-function OnlineOrder(props) {
+function Reservation(props) {
     return (
         <div className="container">
             <div className="row">
                 <div className="col">
                     <Breadcrumb>
                         <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>Online Order</BreadcrumbItem>
+                        <BreadcrumbItem active>Reservations</BreadcrumbItem>
                     </Breadcrumb>
-                    <h2>Online Order</h2>
+                    <h2>Reservations</h2>
                     <hr />
                 </div>
             </div>
@@ -19,4 +19,4 @@ function OnlineOrder(props) {
     );
 }
 
-export default OnlineOrder;
+export default Reservation;
